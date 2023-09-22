@@ -1,3 +1,49 @@
-.completed {
-    color: lightgray
+.Todo {
+    display: flex;
+    margin: 0 -3rem 4px;
+    padding: 1.1rem 3rem;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, .1);
+}
+
+.Todo-task {
+    position: relative;
+    transition: opacity .4s linear;
+}
+
+.Todo-task.completed {
+    opacity: .6;
+}
+
+.Todo-task.completed::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -.5rem;
+    display: block;
+    width: 0%;
+    height: 2px;
+    background: #fff;
+    animation: strikeitem 0.5s ease-in 0s forwards;
+}
+
+@keyframes strikeitem {
+    to {
+        width: calcl(100% + 10rem);
+    }
+}
+
+.Todo-buttons {
+    flex-shrink: 0;
+    padding-left: .7em;
+}
+
+.Todo-buttons button {
+    border: none;
+    font-size: 1em;
+    margin: .4em;
+    background: none;
+   color: #fff;
+    cursor: pointer;
 }
